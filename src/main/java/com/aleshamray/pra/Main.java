@@ -40,7 +40,13 @@ class Main {
     LRU lru = new LRU( page_reference_string );
 
     fifo.set_physical_memory_frame_count( physical_frame_count );
+    fifo.display();
+    System.out.println();
     opt.set_physical_memory_frame_count( physical_frame_count );
+    opt.display();
+    System.out.println();
     lru.set_physical_memory_frame_count( physical_frame_count );
+    lru.display();
+    System.out.println();
   }
 }

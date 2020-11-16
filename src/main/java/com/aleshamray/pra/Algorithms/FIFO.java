@@ -11,7 +11,22 @@ public class FIFO extends Algorithms {
 
   @Override
   public void run() {
-    // TODO: Implement this code
+    for(Integer value : page_reference_string ) {
+      for( int i = 0; i < physical_memory_frame_count; ++i ) {
+        if( memory_frames[i] == value ) break;
+
+        if( memory_frames[i] == -1 ) {
+          page_faults++;
+          memory_frames[i] = value;
+          break;
+        }
+      }
+    }
   }
 
+  @Override
+  public void display() {
+    replacement_algorithm = "FIFO Replacement";
+    super.display();
+  }
 }

@@ -12,4 +12,10 @@ public class OPT extends Algorithms {
   public void run() {
     // TODO: Implement this code
   }
+
+  @Override
+  public void display() {
+    replacement_algorithm = "OPT Replacement";
+    super.display();
+  }
 }
