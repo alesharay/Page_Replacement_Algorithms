@@ -28,7 +28,7 @@ class Main {
   public static void main( String[] args ) throws IOException {
     rand.setSeed( java.lang.System.currentTimeMillis() );
 
-    for( int i = 0; i < 100; ++i ) {
+    for( int i = 0; i < 20; ++i ) {
       next_random = rand.nextInt( 50 );
       page_reference_string.add( next_random );
     }
@@ -41,6 +41,7 @@ class Main {
 
     fifo.set_physical_memory_frame_count( physical_frame_count );
     fifo.display();
+    fifo.run();
     System.out.println();
     opt.set_physical_memory_frame_count( physical_frame_count );
     opt.display();

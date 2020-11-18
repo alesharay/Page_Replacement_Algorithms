@@ -4,34 +4,40 @@ import java.util.ArrayList;
 
 public class FIFO extends Algorithms {
 
-  
   public FIFO( ArrayList<Integer> page_reference_string ) {
     super( page_reference_string );
   }
 
   @Override
-  protected void replace( int value ) {
-    for( int i = 0; i < physical_memory_frame_count; ++i ) {
-      
-    }
-  }
-
-  @Override
   public void run() {
-    for(Integer value : page_reference_string ) {
-      empty_frame_found = false;
-      for( int i = 0; i < physical_memory_frame_count; ++i ) {
-        if( memory_frames[i] == value ) break;
+    for( Integer value : page_reference_string ) {
+            
+      System.out.print(value + " ");
+      System.out.println();
+      
+      if( memory_frames.get(value) != null ) { 
+        int count = memory_frames.get(value);
+        memory_frames.put(value, ++count);
+        break;
+      } else {
+        page_faults++;
 
-        if( memory_frames[i] == -1 ) {
-          empty_frame_found = true;
-          page_faults++;
-          memory_frames[i] = value;
+        if( memory_frames.isEmpty() || 
+          ( !memory_frames.containsKey(value) && (memory_frames.size() < memory_frame_count) ) ) {
+          // empty frames available
+          memory_frames.put(value, 1);
+          break;
+        } else {
+          // swap is necessary
+          int highest_count_frame = 0;
+          
+          
+          memory_frames.put(value, 1); 
+          
+
           break;
         }
       }
-
-      replace(value);
     }
   }
 
