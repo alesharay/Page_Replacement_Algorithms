@@ -6,6 +6,8 @@ public class OPT extends Algorithms {
 
   public OPT( ArrayList<Integer> page_reference_string ) {
     super( page_reference_string );
+    page_faults = 0;
+    replacement_algorithm = "OPT Replacement";
   }
 
   @Override
@@ -15,7 +17,10 @@ public class OPT extends Algorithms {
 
   @Override
   public void display() {
-    replacement_algorithm = "OPT Replacement";
-    super.display();
+    System.out.println();
+    System.out.printf( "%s%n", replacement_algorithm );
+    System.out.print( "Reference string: " ); for( Integer value : page_reference_string ) { System.out.printf( "%d ", value ); }
+    System.out.println();
+    System.out.printf( "Page faults: %d%n", page_faults );
   }
 }

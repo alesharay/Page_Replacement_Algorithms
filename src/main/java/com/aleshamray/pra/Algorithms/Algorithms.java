@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public abstract class Algorithms {
   protected ArrayList<Integer> page_reference_string;
+  protected int page_faults;
   protected int memory_frame_count;
   protected HashMap<Integer, Integer> memory_frames;
   protected String replacement_algorithm;
@@ -22,8 +23,6 @@ public abstract class Algorithms {
     for( Integer value : page_reference_string ) { System.out.printf( "%d ", value); }
   }
 
-  
-  
   // <<<<<<<< ABSTRACT FUNCTIONS >>>>>>>>
   // protected abstract void replace(int value);
   
