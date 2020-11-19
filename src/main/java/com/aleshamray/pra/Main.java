@@ -28,8 +28,8 @@ class Main {
   public static void main( String[] args ) throws IOException {
     rand.setSeed( java.lang.System.currentTimeMillis() );
 
-    for( int i = 0; i < 20; ++i ) {
-      next_random = rand.nextInt( 50 );
+    for( int i = 0; i < 18; ++i ) {
+      next_random = rand.nextInt( 10 );
       page_reference_string.add( next_random );
     }
 
@@ -39,14 +39,14 @@ class Main {
     OPT opt = new OPT( page_reference_string );
     LRU lru = new LRU( page_reference_string );
 
-    fifo.set_physical_memory_frame_count( physical_frame_count );
+    fifo.set_memory_frame_count( physical_frame_count );
     fifo.display();
     fifo.run();
     System.out.println();
-    opt.set_physical_memory_frame_count( physical_frame_count );
+    opt.set_memory_frame_count( physical_frame_count );
     opt.display();
     System.out.println();
-    lru.set_physical_memory_frame_count( physical_frame_count );
+    lru.set_memory_frame_count( physical_frame_count );
     lru.display();
     System.out.println();
   }
