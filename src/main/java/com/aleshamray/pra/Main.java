@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 import com.aleshamray.pra.Algorithms.*;
 
@@ -28,10 +29,16 @@ class Main {
   public static void main( String[] args ) throws IOException {
     rand.setSeed( java.lang.System.currentTimeMillis() );
 
-    for( int i = 0; i < 18; ++i ) {
-      next_random = rand.nextInt( 10 );
-      page_reference_string.add( next_random );
-    }
+    // <<<<<<<< UNCOMMENT THIS AFTER TESTING >>>>>>>>
+    // for( int i = 0; i < 18; ++i ) {
+    //   next_random = rand.nextInt( 10 );
+    //   page_reference_string.add( next_random );
+    // }
+
+
+    // <<<<<<<< DELETE THIS, IT IS JUST FOR TESTING >>>>>>>>
+    page_reference_string = new ArrayList<>( Arrays.asList(1,2,3,2,1,5,2,1,6,2,5,6,3,1,3,6,1,2,4,3) );
+
 
     physical_frame_count_prompt();
 

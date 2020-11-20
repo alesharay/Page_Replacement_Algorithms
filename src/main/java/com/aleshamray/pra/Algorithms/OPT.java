@@ -1,6 +1,8 @@
 package com.aleshamray.pra.Algorithms;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class OPT extends Algorithms {
 
@@ -12,7 +14,19 @@ public class OPT extends Algorithms {
 
   @Override
   public void run() {
-    // TODO: Implement this code
+    for( int i = 0; i < page_reference_string.size(); ++i ) {
+      int key = page_reference_string.get(i);
+
+      if( memory_frames.isEmpty() || 
+        (!memory_frames.containsKey(key) && (memory_frames.size() <  memory_frame_count)) ) {
+        // EMPTY FRAMES AVAILABLE
+        memory_frames.put( key, i );
+        System.out.println( "Value not in frames; page fault +1; empty frames available\n" );
+      }
+
+    }
+
+    System.out.printf( "Page faults: %d%n", page_faults );  
   }
 
   @Override

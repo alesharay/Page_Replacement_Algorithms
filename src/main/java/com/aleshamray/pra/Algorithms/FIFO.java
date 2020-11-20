@@ -31,12 +31,10 @@ public class FIFO extends Algorithms {
 
         if( memory_frames.isEmpty() || (!memory_frames.containsKey(key) && (memory_frames.size() < memory_frame_count)) ) {
           // EMPTY FRAMES AVAILABLE
-
           memory_frames.put( key, 1 );
           System.out.println( "Value not in frames; page fault +1; empty frames available\n" );
         } else {
           // SWAP IS NECESSARY
-
           for( Map.Entry<Integer,Integer> frame : memory_frames.entrySet() ) {
             if( !memory_frames.containsKey(highest_count_frame) || frame.getValue() > memory_frames.get(highest_count_frame) ) {
               highest_count_frame = frame.getKey();
