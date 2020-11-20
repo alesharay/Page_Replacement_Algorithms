@@ -16,6 +16,7 @@ public class FIFO extends Algorithms {
   @Override
   public void run() {
     for( Integer key : page_reference_string ) {
+      System.out.printf( "%nKey: %d%n", key);
       
       if( !memory_frames.isEmpty() ) {
         memory_frames.entrySet().forEach(frame -> memory_frames.replace(frame.getKey(), frame.getValue()+1));
@@ -48,16 +49,16 @@ public class FIFO extends Algorithms {
         }
       }
     }
-
-    System.out.printf( "Page faults: %d%n", page_faults );
   }
 
-  @Override
-  public void display() {
-    System.out.println();
-    System.out.printf( "%s%n", replacement_algorithm );
-    System.out.print( "Reference string: " ); for( Integer value : page_reference_string ) { System.out.printf( "%d ", value ); }
-    System.out.println();
-    System.out.printf( "Page faults: %d%n", page_faults );
-  }
+  // @Override
+  // public void display() {
+  //   System.out.println();
+  //   System.out.printf( "%s%n", replacement_algorithm );
+  //   System.out.print( "Reference string: " ); for( Integer value : page_reference_string ) { System.out.printf( "%d ", value ); }
+  //   System.out.println();
+  //   System.out.printf( "Page faults: %d%n", page_faults );
+  //   System.out.println();
+  //   System.out.println();
+  // }
 }

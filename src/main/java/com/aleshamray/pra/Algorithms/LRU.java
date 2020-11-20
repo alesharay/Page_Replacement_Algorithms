@@ -14,13 +14,4 @@ public class LRU extends Algorithms {
   public void run() {
     // TODO: Implement this code
   }
-
-  @Override
-  public void display() {
-    System.out.println();
-    System.out.printf( "%s%n", replacement_algorithm );
-    System.out.print( "Reference string: " ); for( Integer value : page_reference_string ) { System.out.printf( "%d ", value ); }
-    System.out.println();
-    System.out.printf( "Page faults: %d%n", page_faults );
-  }
 }
