@@ -37,7 +37,7 @@ class Main {
 
 
     // <<<<<<<< DELETE THIS, IT IS JUST FOR TESTING >>>>>>>>
-    page_reference_string = new ArrayList<>( Arrays.asList(7, 0, 1, 2, 0, 3, 0, 4, 2, 3, 0, 3, 2) );
+    page_reference_string = new ArrayList<>( Arrays.asList(1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6) );
 
 
     physical_frame_count_prompt();
