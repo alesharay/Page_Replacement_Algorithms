@@ -2,6 +2,7 @@ package com.aleshamray.pra.Algorithms;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public abstract class Algorithms {
   protected ArrayList<Integer> page_reference_string;
@@ -23,9 +24,23 @@ public abstract class Algorithms {
     for( Integer value : page_reference_string ) { System.out.printf( "%d ", value); }
   }
 
-  // <<<<<<<< ABSTRACT FUNCTIONS >>>>>>>>
-  // protected abstract void replace(int value);
+  public void display_frames() {
+    for( Map.Entry<Integer,Integer> frame : memory_frames.entrySet() ) {
+      System.out.printf( "%d ", frame.getKey() );
+      System.out.println();
+    }
+  }
+
+  public void display() {
+    System.out.println();
+    System.out.printf( "%s%n", replacement_algorithm );
+    System.out.print( "Reference string: " ); for( Integer value : page_reference_string ) { System.out.printf( "%d ", value ); }
+    System.out.println();
+    System.out.printf( "Page faults: %d%n", page_faults );
+    System.out.println();
+    System.out.println();
+  }
   
-  public abstract void display();
+  // <<<<<<<< ABSTRACT FUNCTIONS >>>>>>>>  
   public abstract void run();
 }
