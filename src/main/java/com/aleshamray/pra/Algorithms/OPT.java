@@ -17,7 +17,7 @@ public class OPT extends Algorithms {
     int swap_key = 0;
     for( int i = 0; i < page_reference_string.size(); ++i ) {
       int key = page_reference_string.get(i);
-      System.out.printf( "%nKey: %d%n", key);
+      // System.out.printf( "%nKey: %d%n", key); // FOR TESTING
 
       if( !memory_frames.isEmpty() ) {
         memory_frames.entrySet().forEach(frame -> memory_frames.replace(frame.getKey(), frame.getValue()+1));
@@ -27,7 +27,7 @@ public class OPT extends Algorithms {
         // KEY ALREADY IN FRAMES
         int count = memory_frames.get( key );
         memory_frames.put( key, ++count ); 
-        System.out.println( "value in frames, no page fault\n" );
+        // System.out.println( "value in frames, no page fault\n" ); // FOR TESTING
       } else {
         ++page_faults;
         
@@ -35,8 +35,8 @@ public class OPT extends Algorithms {
               ( !memory_frames.containsKey(key) && (memory_frames.size() <  memory_frame_count)) ) {
           // EMPTY FRAMES AVAILABLE
           memory_frames.put( key, i );
-          System.out.println( "Value not in frames; page fault +1; empty frames available\n" );
-          System.out.printf( "Page faults: %d%n", page_faults );
+          // System.out.println( "Value not in frames; page fault +1; empty frames available\n" ); // FOR TESTING
+          // System.out.printf( "Page faults: %d%n", page_faults );
         } else {
           // SWAP IS NECESSARY
           HashMap<Integer,Integer> frame_to_replace = 
@@ -59,8 +59,8 @@ public class OPT extends Algorithms {
             }
           }
 
-          System.out.printf( "Value not in frames; page fault +1; no empty frames; swapping %d with %d%n%n", swap_key, key );
-          System.out.printf( "Page faults: %d%n", page_faults );
+          // System.out.printf( "Value not in frames; page fault +1; no empty frames; swapping %d with %d%n%n", swap_key, key ); // FOR TESTING
+          // System.out.printf( "Page faults: %d%n", page_faults );
         }
       }
     }
