@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import com.aleshamray.pra.Algorithms.*;
 
+/**
+ * Main program runner
+ */
 class Main {
   public static BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
   public static ArrayList<Integer> page_reference_string = new ArrayList<>();
@@ -14,32 +17,35 @@ class Main {
   public static int next_random;
   public static int physical_frame_count;
 
+  /**
+   * Sets the physical frame count based on argument passed into the command line
+   * @param frames the number of frames for which to run the algorithm; must between 1-30 frames
+   */
   public static void set_physical_frame_count(int frames) {
-    // System.out.print( "Please enter physical memory frame count: " );
-    // physical_frame_count = Integer.parseInt( in.readLine() );
-
     if( physical_frame_count < 1 || physical_frame_count > 30 ) {
       System.out.printf( "%d is an invalid frame count. Must be in range 1 - 30. Aborting!%n", physical_frame_count );
       System.exit( 0 );
     }
   }
 
+  /**
+   * Main method to run program
+   * @param args command line arguments passed in when program runs
+   * @throws IOException
+   */
   public static void main( String[] args ) throws IOException {
     rand.setSeed( java.lang.System.currentTimeMillis() );
 
-    // <<<<<<<< UNCOMMENT THIS AFTER TESTING >>>>>>>>
     for( int i = 0; i < 100; ++i ) { 
       next_random = rand.nextInt( 50 );
       page_reference_string.add( next_random );
     }
 
-    // // <<<<<<<< THIS IS JUST FOR TESTING >>>>>>>>
-    // page_reference_string = new ArrayList<>( Arrays.asList(1,2,3,4,2,1,5,6,2,1,2,3,7,6,3,2,1,2,3,6) );
-
     try {
       physical_frame_count = Integer.parseInt( args[0] );
       set_physical_frame_count( physical_frame_count );
     } catch ( ArrayIndexOutOfBoundsException aioob ) {
+      System.out.println( "An error has occured!" );
       aioob.printStackTrace();
     }
 
@@ -69,9 +75,8 @@ class Main {
         lru.display_to_console();
         System.out.println();
       }
-    } catch( ArrayIndexOutOfBoundsException aioob ) {
-      // do nothing
-    }
+    } catch( ArrayIndexOutOfBoundsException aioob ) { /* do nothing */ }
+
     System.out.println( "File writing complete!" );
     System.out.println( "File closed" );
   }
